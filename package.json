@@ -5,7 +5,7 @@
   "engines":{
     "npm":"5.6.x",
     "node":"8.11.x"
-  }
+  },
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
