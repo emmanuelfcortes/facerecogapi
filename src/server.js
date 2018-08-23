@@ -14,12 +14,23 @@ const cors=require("cors"); // biblioteca para trabalhar com o CORS-HTTP
 const knex=require("knex")({ //url da biblioteca knex => https://knexjs.org/
 	client:'pg',// postgres
 	connection:{
+		host:'ec2-23-23-216-40.compute-1.amazonaws.com',
+		user:'spzihmynvtoqwn',
+		password:'64eb6ba7eb62b2161d8f934d51d4395a1aa84b4a80c089ddcce4c102631c7802',
+		database:'d23dcusqi7ib1a'
+	}
+});
+/*
+const knex=require("knex")({ //url da biblioteca knex => https://knexjs.org/
+	client:'pg',// postgres
+	connection:{
 		host:'127.0.0.1',
 		user:'adm',
 		password:'123',
 		database:'facerecog'
 	}
-});
+});*/
+
 const db=knex;
 app.use(bodyParser.json());// middleware that transform the frontend recept data in JSON format.
 app.use(cors());
