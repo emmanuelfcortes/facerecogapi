@@ -38,7 +38,8 @@ app.use(cors());
 
 // criando os bds USERS  e LOGIN =======================================
 db.schema.dropTable('users');
-db.schema.createTable('users', users => {
+db.schema.dropTable('login');
+/*db.schema.createTable('users', users => {
 	users.increments('id').primary().unique();
 	users.string('name',100);
 	users.string('password',30);
@@ -57,7 +58,7 @@ db.schema.createTable('login', login=>{
 }).then(resp=>console.log("===============>>>>>>>LOGIN WAS CREATED<<<<<<================",resp))
   .catch(err => console.log(err));
 
-//=====================================================================
+*///=====================================================================
 
 app.get("/", (req, resp)=>{
 	//console.log("123")
