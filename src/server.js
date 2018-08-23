@@ -39,7 +39,7 @@ app.use(cors());
 // criando os bds USERS  e LOGIN =======================================
 
 db.schema.createTable('users', users => {
-	users.int('id').increment().primary().unique();
+	users.increments('id').primary().unique();
 	users.string('name',100);
 	users.string('password',30);
 	users.string('email', 50).unique();
@@ -51,7 +51,7 @@ db.schema.createTable('users', users => {
   .catch(err => console.log(err));
 
 db.schema.createTable('login', login=>{
-	login.int('id').increment().primary().unique();
+	login.increments('id').primary().unique();
 	login.string('email');
 	login.string('passwordhash');
 }).then(resp=>console.log("===============>>>>>>>LOGIN WAS CREATED<<<<<<================",resp))
