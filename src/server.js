@@ -37,7 +37,7 @@ app.use(bodyParser.json());// middleware that transform the frontend recept data
 app.use(cors());
 
 // criando os bds USERS  e LOGIN =======================================
-
+db.schema.dropTable('users');
 db.schema.createTable('users', users => {
 	users.increments('id').primary().unique();
 	users.string('name',100);
