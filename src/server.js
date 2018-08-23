@@ -47,13 +47,15 @@ db.schema.createTable('users', users => {
 	users.timestamps('ingress');
 	users.string('passwordhash');
 
-}).catch(err => console.log(err));
+}).then(resp=>console.log("===============>>>>>>>USERS WAS CREATED<<<<<<================",resp))
+  .catch(err => console.log(err));
 
 db.schema.createTable('login', login=>{
 	login.increment('id').primary().unique();
 	login.string('email');
 	login.string('passwordhash');
-}).catch(err => console.log(err));
+}).then(resp=>console.log("===============>>>>>>>LOGIN WAS CREATED<<<<<<================",resp))
+  .catch(err => console.log(err));
 
 //=====================================================================
 
