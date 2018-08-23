@@ -20,6 +20,7 @@ const knex=require("knex")({ //url da biblioteca knex => https://knexjs.org/
 		database:'d23dcusqi7ib1a'
 	}
 });
+
 /*
 const knex=require("knex")({ //url da biblioteca knex => https://knexjs.org/
 	client:'pg',// postgres
@@ -34,6 +35,27 @@ const knex=require("knex")({ //url da biblioteca knex => https://knexjs.org/
 const db=knex;
 app.use(bodyParser.json());// middleware that transform the frontend recept data in JSON format.
 app.use(cors());
+
+// criando os bds USERS  e LOGIN =======================================
+
+bd.schema.createTable('users', users => {
+	users.increment('id').primary().unique();
+	users.string('name',100);
+	users.string('password',30);
+	users.string('email', 50).unique();
+	users.biginteger('entries');
+	users.timestamps('ingress');
+	users.string('passwordhash');
+
+}).catch(err => console.log(err));
+
+bd.schema.createTable('login', login=>{
+	login.increment('id').primary().unique();
+	login.string('email');
+	login.string('passwordhash');
+}).catch(err => console.log(err));
+
+//=====================================================================
 
 app.get("/", (req, resp)=>{
 	//console.log("123")
