@@ -44,7 +44,7 @@ db.schema.createTable('users', users => {
 	users.string('password',30);
 	users.string('email', 50).unique();
 	users.biginteger('entries');
-	users.timestamps('ingress');
+	users.string('ingress').timestamps();
 	users.string('passwordhash');
 
 }).then(resp=>console.log("===============>>>>>>>USERS WAS CREATED<<<<<<================",resp))
