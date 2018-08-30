@@ -36,10 +36,16 @@ const db=knex;
 app.use(bodyParser.json());// middleware that transform the frontend recept data in JSON format.
 app.use(cors());
 
+
+/*db.schema.dropTable('users')
+.then(resp=>console.log("===================>>>SUCESS DROP THE TABLE USER<<<<==========="))
+.catch(err => console.log("-=-=-=-=-=--=ERRO in DROP TABLE USER-=-=-=-=-=-=-=-=-", err));
+db.schema.dropTable('login')
+.then(resp=>console.log("===================>>>DROP THE TABLE USER<<<<==========="))
+.catch(err => console.log("-=-=-=-=-=--=ERRO in DROP TABLE LOGIN-=-=-=-=-=-=-=-=-", err));*/
+
 // criando os bds USERS  e LOGIN =======================================
-db.schema.dropTable('users').then(resp=>console.log("===================>>>DROP THE TABLE USER<<<<==========="));
-db.schema.dropTable('login').then(resp=>console.log("===================>>>DROP THE TABLE USER<<<<==========="));
-/*db.schema.createTable('users', users => {
+db.schema.createTable('users', users => {
 	users.increments('id').primary().unique();
 	users.string('name',100);
 	users.string('password',30);
@@ -56,7 +62,7 @@ db.schema.createTable('login', login=>{
 	login.string('email');
 	login.string('passwordhash');
 }).then(resp=>console.log("===============>>>>>>>LOGIN WAS CREATED<<<<<<================",resp))
-  .catch(err => console.log(err));*/
+  .catch(err => console.log(err));
 
 //=====================================================================
 
